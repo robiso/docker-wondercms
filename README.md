@@ -8,10 +8,10 @@ This image sets up a development environment and relies on Debian Linux, Apache 
 This will start a Wonder CMS instance listening on port 80:
 
 ```
-git clone https://github.com/robiso/wondercms.git
-docker build -t robiso/wondercms .
+git clone https://github.com/WonderCMS/wondercms.git
+docker build -t WonderCMS/wondercms .
 # create a volume for persistence
 docker volume create wondercms
 # launch the container on port 8080
-docker run --name wondercms -d -p 8080:80 -v wondercms:/var/www/html robiso/wondercms
+docker run --name wondercms -d -p 8080:80 -v wondercms:/var/www/html WonderCMS/wondercms
 ```
