@@ -2,7 +2,7 @@
 # See README for instructions on running this image
 FROM php:7.4-apache
 
-ENV WCMS_VERSION 3.4.2
+ENV WCMS_VERSION 3.4.3
 
 LABEL org.label-schema.name="wondercms" \
     org.label-schema.description="Run wondercms in docker" \
