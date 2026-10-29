@@ -11,6 +11,7 @@ on:
 
 jobs:
   build-and-push:
+    if: github.repository == 'mablanco/docker-wondercms'
     uses: mablanco/shared-github-workflows/.github/workflows/docker-build-push.yml@main
     with:
       container-registry: docker.io
