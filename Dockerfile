@@ -21,10 +21,18 @@ RUN set -eux; \
         | xargs -r apt-mark manual; \
     apt-get -y purge --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     rm -rf /var/lib/apt/lists/*
+# WONDERCMS_VERSION is a tag (checked against WONDERCMS_SHA256) or, with
+# WONDERCMS_SHA256 set empty, a branch; a branch archive moves, so it has no checksum
 RUN set -eux; \
-    curl -fsSL -o wondercms.tar.gz \
-        "https://github.com/WonderCMS/wondercms/archive/refs/tags/${WONDERCMS_VERSION}.tar.gz"; \
-    echo "${WONDERCMS_SHA256}  wondercms.tar.gz" | sha256sum -c -; \
+    archive="https://github.com/WonderCMS/wondercms/archive/refs"; \
+    if curl -fsSL -o wondercms.tar.gz "${archive}/tags/${WONDERCMS_VERSION}.tar.gz"; then \
+        echo "${WONDERCMS_SHA256}  wondercms.tar.gz" | sha256sum -c -; \
+    elif [ -z "${WONDERCMS_SHA256}" ]; then \
+        curl -fsSL -o wondercms.tar.gz "${archive}/heads/${WONDERCMS_VERSION}.tar.gz"; \
+    else \
+        echo "WonderCMS tag ${WONDERCMS_VERSION} not found; set WONDERCMS_SHA256 empty to build a branch" >&2; \
+        exit 1; \
+    fi; \
     tar xzf wondercms.tar.gz --strip-components=1; \
     rm wondercms.tar.gz; \
     mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"; \
