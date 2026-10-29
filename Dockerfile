@@ -35,7 +35,7 @@ RUN set -eux; \
     fi; \
     tar xzf wondercms.tar.gz --strip-components=1; \
     rm wondercms.tar.gz; \
-    mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"; \
+    mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"; \
     a2enmod rewrite; \
     chown -R www-data:www-data .
 EXPOSE 80
