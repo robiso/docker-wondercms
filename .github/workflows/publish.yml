@@ -99,7 +99,7 @@ jobs:
             type=raw,value=${{ steps.version.outputs.version }}
           labels: |
             org.opencontainers.image.title=WonderCMS
-            org.opencontainers.image.description=WonderCMS ${{ steps.version.outputs.version }} on PHP and Apache (development settings)
+            org.opencontainers.image.description=WonderCMS ${{ steps.version.outputs.version }} on PHP and Apache with production settings (php.ini-production, display_errors off)
             org.opencontainers.image.version=${{ steps.version.outputs.version }}
 
       - name: Set up QEMU

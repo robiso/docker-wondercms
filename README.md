@@ -2,7 +2,7 @@
 
 Docker image for WonderCMS, a flat file CMS (<https://www.wondercms.com/>).
 
-This image sets up a **development** environment and relies on Debian Linux, Apache 2 and PHP 8 (with `php.ini-development`, so errors are displayed). It should **NEVER** be used in production.
+This image sets up a **development** environment and relies on Debian Linux, Apache 2 and PHP 8 with production settings (`php.ini-production`, display_errors off). It should **NEVER** be used in production.
 
 This image was created and is maintained by Marco Antonio Blanco ([@mablanco](https://github.com/mablanco)) at [mablanco/docker-wondercms](https://github.com/mablanco/docker-wondercms) and published as `mablanco/wondercms` on Docker Hub. The WonderCMS project now also publishes its own image from this fork, as `ghcr.io/robiso/wondercms` (amd64 and arm64, rebuilt weekly).
 
