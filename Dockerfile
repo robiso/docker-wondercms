@@ -1,7 +1,7 @@
 FROM php:8.4.27-apache@sha256:be1326658a7d36dba6be79a71212d6ff9c5f854335b8ba77d714da1852c1b2ea
 ARG DEBIAN_FRONTEND=noninteractive
-ARG WONDERCMS_VERSION=3.7.0
-ARG WONDERCMS_SHA256=f1c61e7dbaaf927e33b4b1aa8c14a7cf9b513a231ad6d65b82a44e8190f74785
+ARG WONDERCMS_VERSION=3.7.2
+ARG WONDERCMS_SHA256=c433d6afc693370ad4ae946dcc8d642fe6f5a8a647d13ab74d76fb61413b2030
 WORKDIR /var/www/html
 # Build the PHP extensions, then keep only the runtime libraries they link to
 RUN set -eux; \
